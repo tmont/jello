@@ -1,0 +1,19 @@
+{
+	"name": "jello",
+	"version": "0.0.1",
+	"description": "Mock framework",
+	"keywords": [ "mock", "testing", "stub" ],
+
+	"author": "Tommy Montgomery <tmont@tmont.com> (http://tmont.com/)",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/tmont/jello.git"
+	},
+
+	"dependencies": {},
+
+	"devDependencies": {
+		"mocha": "1.17.1",
+		"should": "3.1.2"
+	}
+}
