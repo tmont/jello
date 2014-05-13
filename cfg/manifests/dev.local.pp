@@ -5,55 +5,53 @@ Exec {
 
 $default_timezone = 'America/Los_Angeles'
 
-node 'cb-web.dev.local' {
+node 'jello.dev.local' {
   include firstrun
   include common
-  include curveball::params
-  include curveball::users
+  include jello::params
+  include jello::users
 
   package { 'vim':
     ensure => present
   }
 
   class { 'nodejs':
-    version => $::curveball::params::node_version
+    version => $::jello::params::node_version
   }
 
   class { 'timezone':
     timezone => $default_timezone
   }
 
-  $www_dir = "/var/www/sites/${curveball::params::host}"
+  $www_dir = "/var/www/sites/${jello::params::host}"
 
-  class { 'curveball::affiliate_www':
+  class { 'jello::www':
     www_dir => $www_dir,
-    watch_config_file => '/vagrant/src/affiliate-www/watcher-config.js',
-    node_path => "/var/www/sites/${curveball::params::host}/node_modules"
+    watch_config_file => '/vagrant/src/www/watcher-config.js',
+    node_path => "/var/www/sites/${jello::params::host}/node_modules"
   }
 
-  class { 'curveball::affiliate_static':
+  class { 'jello::static':
     www_dir => $www_dir,
   }
 
-  class { 'curveball::dev_rsync':
+  class { 'jello::dev_rsync':
     www_dir => $www_dir
   }
 
-  class { 'curveball::cache':
+  class { 'jello::cache':
     store_memory => '64mb',
     cache_memory => '64mb'
   }
 
   Class['firstrun']
-    -> Class['common']
     -> Package['vim']
     -> Class['timezone']
-    -> Class['redis']
     -> Class['nodejs']
-    -> Class['curveball::params']
-    -> Class['curveball::users']
-    -> Class['curveball::dev_rsync']
-    -> Class['curveball::affiliate_www']
-    -> Class['curveball::affiliate_static']
-    -> Class['curveball::cache']
+    -> Class['jello::params']
+    -> Class['jello::users']
+    -> Class['jello::dev_rsync']
+    -> Class['jello::']
+    -> Class['jello::static']
+    -> Class['jello::cache']
 }

@@ -1,21 +1,21 @@
 {
-	"listenPort": <%= scope.lookupvar("curveball::params::static_listenPort") %>,
-	"workers": <%= scope.lookupvar("curveball::params::static_workers") %>,
-	"useCluster": <%= scope.lookupvar("curveball::params::static_useCluster") %>,
-	"cacheLess": <%= scope.lookupvar("curveball::params::static_cacheLess") %>,
-	"cacheJs": <%= scope.lookupvar("curveball::params::static_cacheJs") %>,
-	"minifyJs": <%= scope.lookupvar("curveball::params::static_minifyJs") %>,
-	"staticBasePath": "<%= scope.lookupvar("curveball::params::staticBasePath") %>",
-	"bundleJs": <%= scope.lookupvar("curveball::params::bundleJs") %>,
+	"listenPort": <%= scope.lookupvar("jello::params::static_listenPort") %>,
+	"workers": <%= scope.lookupvar("jello::params::static_workers") %>,
+	"useCluster": <%= scope.lookupvar("jello::params::static_useCluster") %>,
+	"cacheLess": <%= scope.lookupvar("jello::params::static_cacheLess") %>,
+	"cacheJs": <%= scope.lookupvar("jello::params::static_cacheJs") %>,
+	"minifyJs": <%= scope.lookupvar("jello::params::static_minifyJs") %>,
+	"staticBasePath": "<%= scope.lookupvar("jello::params::staticBasePath") %>",
+	"bundleJs": <%= scope.lookupvar("jello::params::bundleJs") %>,
 	"airbrake": {
-		"apiKey": "<%= scope.lookupvar("curveball::params::airbrake_apiKey") %>",
-		"environment": "<%= scope.lookupvar("curveball::params::airbrake_environment") %>"
+		"apiKey": "<%= scope.lookupvar("jello::params::airbrake_apiKey") %>",
+		"environment": "<%= scope.lookupvar("jello::params::airbrake_environment") %>"
 	},
 	"log": {
-		"level": "<%= scope.lookupvar("curveball::params::log_level") %>",
-		"showPid": <%= scope.lookupvar("curveball::params::log_showPid") %>,
-		"timestamps": "<%= scope.lookupvar("curveball::params::log_timestamps") %>",
-		"transports": [ "<%= scope.lookupvar("curveball::params::log_transports").join '", "' %>" ],
-		"id": "curveball_static"
+		"level": "<%= scope.lookupvar("jello::params::log_level") %>",
+		"showPid": <%= scope.lookupvar("jello::params::log_showPid") %>,
+		"timestamps": "<%= scope.lookupvar("jello::params::log_timestamps") %>",
+		"transports": [ "<%= scope.lookupvar("jello::params::log_transports").join '", "' %>" ],
+		"id": "jello-static"
 	}
 }

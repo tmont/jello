@@ -65,7 +65,7 @@ class jello::affiliate_www (
     mode => 0644,
     notify => Service[$service_name],
     require => [
-      Logrotate::Rule['curveball-app-logs']
+      Logrotate::Rule['jello-app-logs']
     ]
   }
 

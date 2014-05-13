@@ -68,10 +68,10 @@ class jello::params {
       $db02 = '172.0.0.18'
 
       $db_host = $db01
-      $db_user = 'curveball'
+      $db_user = 'jello'
       $db_password = 'bill cosby loves jello'
       $db_port = 3306
-      $db_database = 'curveball'
+      $db_database = 'jello'
       $db_userHost = '172.0.0.%'
       $db_bindAddress = $ipaddress_eth2
 

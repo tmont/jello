@@ -45,8 +45,8 @@ class jello::static ($www_dir) {
 
   nodeapp::instance { $static_service_name:
     log_dir => $::jello::params::log_dir,
-    user => 'curveball',
-    group => 'curveball',
+    user => $::jello::params::node_user,
+    group => $::jello::params::node_user,
     entry_point => "${www_dir}/src/static/app.js",
     watch_config_file => $static_watch_config_file,
     time_zone => 'Etc/UTC',
