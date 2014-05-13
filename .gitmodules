@@ -1,0 +1,18 @@
+[submodule "cfg/modules/upstart"]
+	path = cfg/modules/upstart
+	url = git@github.com:tmont/puppet-upstart.git
+[submodule "cfg/modules/papertrail"]
+	path = cfg/modules/papertrail
+	url = git@github.com:tmont/puppet-papertrail.git
+[submodule "cfg/modules/nodeapp"]
+	path = cfg/modules/nodeapp
+	url = git@github.com:tmont/puppet-nodeapp.git
+[submodule "cfg/modules/nginx"]
+	path = cfg/modules/nginx
+	url = git@github.com:tmont/puppet-nginx.git
+[submodule "cfg/modules/redis"]
+	path = cfg/modules/redis
+	url = git@github.com:tmont/puppet-redis.git
+[submodule "cfg/modules/firstrun"]
+	path = cfg/modules/firstrun
+	url = git@github.com:tmont/puppet-firstrun.git

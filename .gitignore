@@ -1,3 +1,16 @@
 .idea
 node_modules
 .vagrant
+cfg/modules/*/spec
+cfg/modules/*/tests
+cfg/modules/*/CHANGELOG
+cfg/modules/*/LICENSE
+cfg/modules/*/Gem*
+cfg/modules/*/Rake*
+cfg/modules/*/README*
+cfg/modules/*/RELEASE*
+cfg/modules/*/CONTRIBUTING*
+cfg/modules/*/.travis.yml
+cfg/modules/*/.fixtures.yml
+cfg/modules/*/.rspec
+
