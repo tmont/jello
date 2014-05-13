@@ -3,7 +3,7 @@ node_modules
 .vagrant
 cfg/modules/*/spec
 cfg/modules/*/tests
-cfg/modules/*/CHANGELOG
+cfg/modules/*/CHANGELOG*
 cfg/modules/*/LICENSE
 cfg/modules/*/Gem*
 cfg/modules/*/Rake*
