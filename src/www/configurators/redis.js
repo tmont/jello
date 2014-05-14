@@ -6,7 +6,6 @@ module.exports = function(key, redisConfig) {
 		var client = redis.createClient(redisConfig);
 
 		container.registerInstance(client, key || 'RedisClient', lifetime.memory());
-
-		client.connect().then(next);
+		next();
 	};
 };

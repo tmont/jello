@@ -21,6 +21,6 @@ module.exports = function(container, libs, next) {
 		//mesia.web.destructors.deleteTempFiles
 	];
 
-	container.registerInstance(destructors, 'Destructors', sahara.lifetime.memory());
+	//container.registerInstance(destructors, 'Destructors', sahara.lifetime.memory());
 	next();
 };

@@ -1,0 +1,5 @@
+if bundleJs
+	script(type="text/javascript", src="#{url.js('main-jquery.js')}")
+else
+	each file in jsFiles.jquery
+		script(type="text/javascript", src="#{url.js('_explicit_/' + file)}")

@@ -27,7 +27,6 @@ module.exports = function(req, res, next) {
 		});
 	}
 
-
 	Object.keys(repositories).forEach(function(key) {
 		container
 			.registerType(repositories[key], sahara.lifetime.memory())

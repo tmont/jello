@@ -1,0 +1,24 @@
+doctype html
+html
+	head
+		block meta
+			meta(http-equiv="content-type", content="text/html; charset=utf-8")
+			meta(name="viewport",content="width=device-width, initial-scale=1")
+			include ../partials/meta
+		link(rel="stylesheet", type="text/css", href="#{url.css('jello.css')}")
+	body
+		section.page-wrapper
+			div.container.main-body
+				section#main.content-container
+					block main-content
+			footer.site-footer
+				if footerContent
+					!= footerContent.content
+				else
+					div.container
+						p.copyright-notice.
+							&copy; 2014 Whatever
+
+		script(type="text/javascript").
+			document.body.className += ' yay-for-js';
+		include ../partials/jquery

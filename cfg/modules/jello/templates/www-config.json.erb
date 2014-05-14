@@ -1,34 +1,21 @@
 {
 	"env": "<%= scope.lookupvar("::environment") %>",
 
-    "bundleJs": <%= scope.lookupvar("jello::params::bundleJs") %>,
-    "cacheViews": <%= scope.lookupvar("jello::params::cacheViews") %>,
-    "debugTemplates": <%= scope.lookupvar("jello::params::debugTemplates") %>,
-    "listenPort": <%= scope.lookupvar("jello::params::listenPort") %>,
-    "staticBasePath": "<%= scope.lookupvar("jello::params::staticBasePath") %>",
-    "scheme": "<%= scope.lookupvar("jello::params::scheme") %>",
-    "useCluster": <%= scope.lookupvar("jello::params::useCluster") %>,
-    "useObjectCache": <%= scope.lookupvar("jello::params::useObjectCache") %>,
-    "workers": <%= scope.lookupvar("jello::params::workers") %>,
+	"bundleJs": <%= scope.lookupvar("jello::params::bundleJs") %>,
+	"cacheViews": <%= scope.lookupvar("jello::params::cacheViews") %>,
+	"debugTemplates": <%= scope.lookupvar("jello::params::debugTemplates") %>,
+	"listenPort": <%= scope.lookupvar("jello::params::listenPort") %>,
+	"staticBasePath": "<%= scope.lookupvar("jello::params::staticBasePath") %>",
+	"scheme": "<%= scope.lookupvar("jello::params::scheme") %>",
+	"useCluster": <%= scope.lookupvar("jello::params::useCluster") %>,
+	"useObjectCache": <%= scope.lookupvar("jello::params::useObjectCache") %>,
+	"workers": <%= scope.lookupvar("jello::params::workers") %>,
 
 	"mail": <%= scope.function_sorted_json([ scope.lookupvar("jello::params::mail") ]) %>,
 
-	"airbrake": {
-		"apiKey": "<%= scope.lookupvar("jello::params::airbrake_apiKey") %>",
-		"environment": "<%= scope.lookupvar("jello::params::airbrake_environment") %>"
-	},
-
-    "cache": {
+	"cache": {
 		"host": "<%= scope.lookupvar("jello::params::cache_host") %>",
 		"port": <%= scope.lookupvar("jello::params::cache_port") %>
-	},
-
-	"cloudStorage": {
-		"containerName": "<%= scope.lookupvar("jello::params::cloudStorage_containerName") %>",
-		"username": "<%= scope.lookupvar("jello::params::cloudStorage_username") %>",
-		"apiKey": "<%= scope.lookupvar("jello::params::cloudStorage_apiKey") %>",
-		"useInternal": <%= scope.lookupvar("jello::params::cloudStorage_useInternal") %>,
-		"region": "<%= scope.lookupvar("jello::params::cloudStorage_region") %>"
 	},
 
 	"db": {
