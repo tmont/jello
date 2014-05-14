@@ -1,0 +1,126 @@
+body {
+//	.background-image("tile.jpeg");
+	background-color: #f0f0f0;
+
+	&.vertical-scroll {
+		overflow-y: scroll;
+	}
+}
+
+// meh: http://jsfiddle.net/gBr58/1/
+html, body {
+	height: 100%;
+}
+
+.page-wrapper {
+	height: 100%;
+	margin-bottom: -@site-footer-height;
+//	@media (max-width: @screen-sm-min) {
+//		margin-bottom: -@small-screen-footer-height;
+//	}
+}
+
+#main.content-container {
+	margin-bottom: 100px;
+}
+
+.main-body {
+//	@real-navbar-height: @navbar-height + 1 + @logo-container-height; //+1 for border
+	min-height: 100%;
+	background-color: @body-bg;
+	box-shadow: 0 0 3px fade(black, 12);
+
+//	padding-top: @padding-large-horizontal;
+//	padding-bottom: @padding-large-horizontal;
+	margin-bottom: -@site-footer-height;
+//	padding-right: @grid-gutter-width;
+//	padding-left: @grid-gutter-width;
+
+	&:before, &:after {
+		content: '';
+		display: block;
+	}
+//	@media (min-width: @screen-sm-min) {
+//		margin-top: -@real-navbar-height;
+//		&:before {
+//			height: @real-navbar-height;
+//		}
+//		&:after {
+//			height: @site-footer-height;
+//		}
+//	}
+//	@media (max-width: @screen-sm-min) {
+//		@small-screen-navbar-height: @real-navbar-height - @logo-container-height;
+//		margin-top: -@small-screen-navbar-height;
+//		margin-bottom: -@small-screen-footer-height;
+//		&:before {
+//			height: @small-screen-navbar-height;
+//		}
+//		&:after {
+//			height: @small-screen-navbar-height;
+//		}
+//	}
+}
+
+.site-footer {
+	height: @site-footer-height;
+	background-color: @footer-bg-color;
+	box-shadow: 0 -@footer-shadow-size @footer-shadow-size fade(black, 25);
+	color: @footer-text-color;
+	overflow: hidden;
+	.container {
+		padding-top: @site-footer-height / 8;
+		position: relative;
+		height: @site-footer-height;
+
+		.row {
+			margin: 0 100px;
+		}
+	}
+	ul {
+		list-style: none;
+		padding: 10px;
+	}
+
+	.footer-list {
+		@item-width: 200px;
+		@margin: 20px;
+		@total-width: (@item-width * 3) + (@margin * 2);
+		width: @total-width;
+		position: absolute;
+		left: 50%;
+		margin-left: -(@total-width / 2);
+		top: 30px;
+		> li {
+			width: @item-width;
+			float: left;
+			margin-right: @margin;
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+
+	.copyright-notice {
+		position: absolute;
+		bottom: 17px;
+		text-align: center;
+		width: 100%;
+		font-size: 12px;
+		margin: 0;
+	}
+
+	a {
+		color: @footer-link-color;
+		&:hover {
+			color: @footer-link-active-color;
+			text-decoration: underline;
+		}
+	}
+
+//	@media (max-width: @screen-sm-min) {
+//		&, .container {
+//			height: @small-screen-footer-height;
+//		}
+//	}
+}

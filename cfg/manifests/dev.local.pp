@@ -7,7 +7,6 @@ $default_timezone = 'America/Los_Angeles'
 
 node 'jello.dev.local' {
   include firstrun
-  include common
   include jello::params
   include jello::users
 
@@ -51,7 +50,7 @@ node 'jello.dev.local' {
     -> Class['jello::params']
     -> Class['jello::users']
     -> Class['jello::dev_rsync']
-    -> Class['jello::']
+    -> Class['jello::www']
     -> Class['jello::static']
     -> Class['jello::cache']
 }
