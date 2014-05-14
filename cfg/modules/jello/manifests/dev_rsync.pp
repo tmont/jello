@@ -19,7 +19,7 @@ class jello::dev_rsync ($www_dir) {
   }
 
   exec { "rsync-web-files":
-    command => "rsync -vaz --delete --exclude config.json --exclude src/views --exclude src/static/fonts --exclude src/affiliate-static/js --exclude src/affiliate-static/css --exclude src/static/images /vagrant/src /vagrant/package.json ${www_dir}",
+    command => "rsync -vaz --delete --exclude config.json --exclude src/views --exclude src/static/fonts --exclude src/static/js --exclude src/static/css --exclude src/static/images /vagrant/src /vagrant/package.json ${www_dir}",
     require => [
       File['/var/www'],
       File['/var/www/sites'],

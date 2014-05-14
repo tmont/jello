@@ -7,10 +7,13 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
 
+  config.vm.network :forwarded_port, guest: 3306, host: 3306
+  config.vm.network :forwarded_port, guest: 80, host: 80
+
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "cfg/manifests"
     puppet.manifest_file = "dev.local.pp"
-    puppet.module_path = "puppet/modules"
+    puppet.module_path = "cfg/modules"
     puppet.facter = { "fqdn" => "jello.dev.local" }
     puppet.options = "--environment=dev"
   end

@@ -1,10 +1,11 @@
-class jello::affiliate_www (
+class jello::www (
   $www_dir,
   $watch_config_file = undef,
   $npm_install_args = '--unsafe-perm',
   $node_path = undef
 ) {
-  include jello::params, git
+  include jello::params
+  include git
 
   $proxy_name = 'node'
 

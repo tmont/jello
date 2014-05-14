@@ -8,7 +8,7 @@ function isNotJsFile(basename, stat) {
 }
 
 module.exports = {
-	preRestart: 'rsync -vaz --delete --exclude config.json --exclude src/www/views --exclude src/static/fonts --exclude src/static/js --exclude src/static/css --exclude src/affiliate-static/images /vagrant/src /vagrant/tests /var/www/sites/jello.local',
+	preRestart: 'rsync -vaz --delete --exclude config.json --exclude src/www/views --exclude src/static/fonts --exclude src/static/js --exclude src/static/css --exclude src/static/images /vagrant/src /vagrant/tests /var/www/sites/jello.local',
 	locations: [
 		{
 			dir: __dirname,
