@@ -1,15 +1,22 @@
 class jello::db {
-  anchor { 'jello::db::begin':
-    before => Class['jello::params'],
-  }
-
   include jello::params
 
   $db_user = "${jello::params::db_user}@${jello::params::db_userHost}"
   $grant_user = "${db_user}/${jello::params::db_database}.*"
+
+  anchor { 'jello::db::begin':
+    before => Mysql_database[$::jello::params::db_database],
+  }
+
+  mysql_database { $::jello::params::db_database:
+    ensure => 'present',
+    charset => 'utf8',
+  }
+
   mysql_user { $db_user:
     ensure => 'present',
     password_hash => mysql_password($::jello::params::db_password),
+    require => Mysql_database[$::jello::params::db_database]
   }
 
   mysql_grant { $grant_user:
@@ -21,17 +28,9 @@ class jello::db {
     require => Mysql_user[$db_user]
   }
 
-  # create the database
-  mysql_database { $::jello::params::db_database:
-    ensure => 'present',
-    charset => 'utf8',
-  }
-
   anchor { 'jello::db::end':
     require => [
-      Mysql_user[$db_user],
       Mysql_grant[$grant_user],
-      Mysql_database[$::jello::params::db_database],
     ]
   }
 }

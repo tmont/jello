@@ -1,5 +1,10 @@
 class jello::maria ($server_id, $slave_of = undef) {
-  include apt::update, jello::params
+#  include apt::update
+  include jello::params
+
+  anchor { 'jello::maria::begin':
+    before => Apt::Source['mariadb']
+  }
 
   apt::source { 'mariadb':
     location => 'http://ftp.osuosl.org/pub/mariadb/repo/10.0/ubuntu',
@@ -31,7 +36,7 @@ class jello::maria ($server_id, $slave_of = undef) {
 
   class { 'mysql::server':
     package_name => 'mariadb-server',
-    ensure => '10.0.11+maria-1~trusty',
+    package_ensure => '10.0.11+maria-1~trusty',
     require => [
       Apt::Source['mariadb']
     ],
@@ -63,13 +68,26 @@ class jello::maria ($server_id, $slave_of = undef) {
     }
   }
 
+  class { 'mysql::client':
+    package_name => 'mariadb-client',
+    bindings_enable => false,
+    require => Class['mysql::server']
+  }
+
   if $slave_of != undef {
     file { 'replicator-script':
       ensure => 'present',
       path => '/tmp/replicator.sh',
       mode => '0755',
       source => 'puppet:///modules/jello/replicator.sh',
-      require => Class['mysql::server']
+      require => Class['mysql::server'],
+      before => Anchor['jello::maria::end']
     }
+  }
+
+  anchor { 'jello::maria::end':
+    require => [
+      Class['mysql::client']
+    ]
   }
 }

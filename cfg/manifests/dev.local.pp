@@ -9,6 +9,7 @@ node 'jello.dev.local' {
   include firstrun
   include jello::params
   include jello::users
+  include jello::db
 
   package { 'vim':
     ensure => present
@@ -43,12 +44,18 @@ node 'jello.dev.local' {
     cache_memory => '64mb'
   }
 
+  class { 'jello::maria':
+    server_id => 1
+  }
+
   Class['firstrun']
     -> Package['vim']
     -> Class['timezone']
     -> Class['nodejs']
     -> Class['jello::params']
     -> Class['jello::users']
+    -> Class['jello::maria']
+    -> Class['jello::db']
     -> Class['jello::dev_rsync']
     -> Class['jello::www']
     -> Class['jello::static']
