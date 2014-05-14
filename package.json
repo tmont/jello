@@ -21,7 +21,7 @@
 		"moment": "2.6.0",
 		"moment-timezone": "0.0.6",
 		"mysql": "2.2.0",
-		"then-redis": "0.3.12",
+		"redis": "0.10.1",
 		"require-graph": "2.0.0",
 		"sahara": "1.1.1",
 		"sql": "0.39.0",

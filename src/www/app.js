@@ -46,7 +46,7 @@ if (config.useCluster && cluster.isMaster) {
 			goa: goa,
 			sahara: sahara,
 			mysql: require('mysql'),
-			redis: require('then-redis')
+			redis: require('redis')
 		},
 		containerStart = Date.now(),
 		container = new sahara.Container();
@@ -107,8 +107,8 @@ if (config.useCluster && cluster.isMaster) {
 		mesia.web.configurators.express,
 
 		'client-side-partials',
-		'sql',
-		'caching',
+		//'sql',
+		//'caching',
 		'express/locals',
 		'express/middleware',
 		'express/routing',

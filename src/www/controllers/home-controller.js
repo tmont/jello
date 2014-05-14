@@ -6,7 +6,7 @@ function HomeController(/** ControllerContext */context) {
 
 HomeController.prototype = {
 	index: function(params, send) {
-		console.log(require('util').inspect(params, false, null, true));
+//		send(goa.json({ hello: 'world' }));
 		this.context.render('home/index', send);
 	}
 };

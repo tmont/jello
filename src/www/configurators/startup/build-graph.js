@@ -38,6 +38,7 @@ module.exports = function(container, libs, next) {
 			clientJsFiles[name] = files.map(function(absolutePath) {
 				return absolutePath.substring(absolutePath.indexOf('/js/') + 4);
 			});
+			container.resolveSync('Logger').debug('built client-side js graph');
 			next();
 		});
 	}
