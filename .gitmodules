@@ -16,3 +16,6 @@
 [submodule "cfg/modules/firstrun"]
 	path = cfg/modules/firstrun
 	url = git@github.com:tmont/puppet-firstrun.git
+[submodule "cfg/modules/nodejs"]
+	path = cfg/modules/nodejs
+	url = git@github.com:tmont/puppet-nodejs.git
