@@ -3,6 +3,7 @@
 	@loadingWidth: 60px;
 	@smallLoadingWidth: 16px;
 	@smallLoadingHeight: 8px;
+	@padding-large-horizontal: 10px;
 
 	min-width: @loadingWidth + (@padding-large-horizontal * 2);
 	position: relative;
@@ -22,9 +23,9 @@
 
 		text-shadow: 1px 1px 1px fade(black, 20);
 		border: 1px solid fade(@baseColor, 60);
-		#gradient > .vertical(@gradientStart, @gradientStop);
+		//#gradient > .vertical(@gradientStart, @gradientStop);
 		box-shadow: inset 0 -(@padding-large-horizontal / 2) @padding-large-horizontal fade(black, 20);
-		.transition(all 150ms);
+		//.transition(all 150ms);
 
 		.hover-box-shadow() {
 			box-shadow: inset 0 -(@padding-large-horizontal / 8) (@padding-large-horizontal / 4) fade(black, 20);
@@ -35,12 +36,12 @@
 		}
 		&:active, &:focus, &.active {
 			.hover-box-shadow();
-			#gradient > .vertical(@baseColor, lighten(@baseColor, 5%));
+			//#gradient > .vertical(@baseColor, lighten(@baseColor, 5%));
 		}
 
 		&[disabled] {
 			&, &:hover, &:active, &:focus {
-				#gradient > .vertical(desaturate(@baseColor, 10%), lighten(desaturate(@baseColor, 3%), 10%));
+				//#gradient > .vertical(desaturate(@baseColor, 10%), lighten(desaturate(@baseColor, 3%), 10%));
 				cursor: not-allowed;
 			}
 		}
@@ -51,20 +52,20 @@
 		@gradientStart: lighten(@baseColor, 10%);
 		@gradientStop: darken(@baseColor, 10%);
 
-		border: 1px solid fade(@gray-light, 60);
-		#gradient > .vertical(@gradientStart, @gradientStop);
-		.transition(all 150ms);
+		border: 1px solid fade(darken(@baseColor, 20%), 60);
+//		#gradient > .vertical(@gradientStart, @gradientStop);
+//		.transition(all 150ms);
 
 		&:hover {
 			box-shadow: inset 0 -(@padding-large-horizontal / 8) (@padding-large-horizontal / 4) fade(black, 10);
 		}
 		&:active, &:focus, &.active {
-			#gradient > .vertical(darken(@baseColor, 5%), lighten(@baseColor, 5%));
+//			#gradient > .vertical(darken(@baseColor, 5%), lighten(@baseColor, 5%));
 		}
 
 		&[disabled] {
 			&, &:hover, &:active, &:focus {
-				#gradient > .vertical(desaturate(@baseColor, 10%), lighten(desaturate(@baseColor, 3%), 10%));
+//				#gradient > .vertical(desaturate(@baseColor, 10%), lighten(desaturate(@baseColor, 3%), 10%));
 				cursor: not-allowed;
 			}
 		}
