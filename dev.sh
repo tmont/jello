@@ -18,6 +18,8 @@ Commands:
   ${green}generate${reset}
     ${bold}schema${reset}
       dumps the maria database schema (without data)
+    ${bold}sql${reset}
+      creates the sql definitions needed for the node-sql module
 USAGE
 }
 
@@ -27,7 +29,7 @@ millis() {
 
 doRun() {
 	local start=$(millis)
-	local cmdName=$1
+	local cmdName=$(basename $1)
 	shift
 	debug "\`$@\`"
 	eval "$@" 2>&1 | logOutput "${cmdName}"
@@ -109,7 +111,10 @@ generateSchema() {
 }
 
 generateSql() {
-	echo
+	local db=${productName}
+	local target="${basedir}/src/core/schema.js"
+	script="${basedir}/scripts/node_modules/.bin/node-sql-generate"
+	run "${script}" --modularize --dsn "mysql://root@127.0.0.1/${db}" -o "${target}"
 }
 
 case $1 in
@@ -117,6 +122,10 @@ case $1 in
 		case $2 in
 			schema)
 				generateSchema
+				generateSql
+				;;
+			sql)
+				generateSql
 				;;
 			*)
 				usage

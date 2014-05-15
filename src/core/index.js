@@ -1,4 +1,5 @@
 module.exports = {
 	repositories: {},
-	validators: {}
+	validators: {},
+	schema: require('./schema')
 };
