@@ -1,0 +1,5 @@
+if bundleJs
+	script(type="text/javascript", src="#{url.js('main-backbone.js')}")
+else
+	each file in jsFiles.backbone
+		script(type="text/javascript", src="#{url.js('_explicit_/' + file)}")

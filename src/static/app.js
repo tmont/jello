@@ -227,7 +227,7 @@ function buildGraph(next) {
 		graph.buildGraph(mainFile, graphOptions, next);
 	}
 
-	require('async').each([ 'jello', 'jquery' ], build, next);
+	require('async').each([ 'jello', 'jquery', 'backbone' ], build, next);
 }
 
 buildGraph(function(err) {

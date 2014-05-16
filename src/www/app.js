@@ -100,7 +100,7 @@ if (config.useCluster && cluster.isMaster) {
 		require('./configurators/redis')('RedisStoreClient', config.store),
 		require('./configurators/redis')('RedisCacheClient', config.cache),
 		mesia.web.configurators.registerAppDirectory('controllers'),
-//		mesia.web.configurators.registerAppDirectory('controllers/services'),
+		mesia.web.configurators.registerAppDirectory('controllers/services'),
 
 		'session-store',
 		'controller-factory',

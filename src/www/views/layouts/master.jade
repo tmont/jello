@@ -8,17 +8,17 @@ html
 		link(rel="stylesheet", type="text/css", href="#{url.css('jello.css')}")
 	body
 		section.page-wrapper
+			nav.site-header
+				h1: a(href="#{url.route('home')}") Jello
 			div.container.main-body
-				section#main.content-container
+				section#main
 					block main-content
 			footer.site-footer
-				if footerContent
-					!= footerContent.content
-				else
-					div.container
-						p.copyright-notice.
-							&copy; 2014 Whatever
-
+				div.container
+					p.copyright-notice.
+						&copy; 2014 Whatever
 		script(type="text/javascript").
 			document.body.className += ' yay-for-js';
 		include ../partials/jquery
+		include ../partials/backbone
+		block deferred-scripts

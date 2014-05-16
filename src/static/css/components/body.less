@@ -1,3 +1,7 @@
+* {
+	-moz-box-sizing: border-box;
+}
+
 body {
 //	.background-image("tile.jpeg");
 	background-color: #f0f0f0;
@@ -21,34 +25,33 @@ html, body {
 }
 
 #main.content-container {
-//	margin-bottom: 100px;
+	margin-bottom: 100px;
 }
 
 .main-body {
-//	@real-navbar-height: @navbar-height + 1 + @logo-container-height; //+1 for border
+	@navbar-height: 100px;
+	@logo-container-height: 0;
+	@screen-sm-min: 768px;
+	@real-navbar-height: @navbar-height + 1 + @logo-container-height; //+1 for border
 	min-height: 100%;
 	background-color: @body-bg;
 	box-shadow: 0 0 3px fade(black, 12);
-
-//	padding-top: @padding-large-horizontal;
-//	padding-bottom: @padding-large-horizontal;
+	padding: 20px;
 	margin-bottom: -@site-footer-height;
-//	padding-right: @grid-gutter-width;
-//	padding-left: @grid-gutter-width;
 
 	&:before, &:after {
 		content: '';
 		display: block;
 	}
-//	@media (min-width: @screen-sm-min) {
-//		margin-top: -@real-navbar-height;
-//		&:before {
-//			height: @real-navbar-height;
-//		}
-//		&:after {
-//			height: @site-footer-height;
-//		}
-//	}
+	@media (min-width: @screen-sm-min) {
+		margin-top: -@real-navbar-height;
+		&:before {
+			height: @real-navbar-height;
+		}
+		&:after {
+			height: @site-footer-height;
+		}
+	}
 //	@media (max-width: @screen-sm-min) {
 //		@small-screen-navbar-height: @real-navbar-height - @logo-container-height;
 //		margin-top: -@small-screen-navbar-height;
@@ -60,6 +63,15 @@ html, body {
 //			height: @small-screen-navbar-height;
 //		}
 //	}
+}
+
+.site-header {
+	padding: 20px;
+	position: relative;
+	background-color: yellow;
+	h1 {
+		margin: 0;
+	}
 }
 
 .site-footer {

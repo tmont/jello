@@ -1,0 +1,14 @@
+h2 Login
+
+form.login-form(method="post")
+	div.input-group
+		label.control-label(for="email") Email
+		input.form-control(type="email", id="email", name="email", placeholder="foo@bar.com")
+
+	div.input-group
+		label.control-label(for="password") Password
+		input.form-control(type="password", id="password", name="password", placeholder="Password")
+
+	div.submit-container
+		button.btn.btn-primary.submit-input(type="submit", autocomplete="off")
+			span.btn-content Login

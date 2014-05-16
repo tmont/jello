@@ -1,0 +1,10 @@
+extends master
+block main-content
+	block body
+block prepend deferred-scripts
+	include ../partials/inlined-js
+	if bundleJs
+		script(type="text/javascript", src="#{url.js(mainScript || 'main-jello.js')}")
+	else
+		each file in jsFiles.jello
+			script(type="text/javascript", src="#{url.js('_explicit_/' + file)}")

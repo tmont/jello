@@ -6,8 +6,8 @@
 		exports[name] = new Route(name, url, title, description, extra);
 	}
 
-	// Ye olde home page
 	create('home', '/', 'Jello');
+	create('login', '/login', 'Login | Jello');
 
 	//error routes
 	create('badRequest', null, 'Bad Request');

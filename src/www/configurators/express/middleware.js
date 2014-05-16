@@ -27,20 +27,20 @@ module.exports = function(container, libs, next) {
 	}
 
 	var middleware = [
-//		function(req, res, next) {
-//			mesia.web.configurators.mariadb(config.db, 'DbConnection')(req.container, libs, next);
-//		},
-//		function(req, res, next) {
-//			//350 is the limit in ms for logging "slow" queries
-//			mesia.web.configurators.sqlExecutor('SqlExecutor', 'DbConnection', 350)(req.container, libs, next);
-//		},
-//		function(req, res, next) {
-//			mesia.web.configurators.transactionInterceptor('SqlExecutor')(req.container, libs, next);
-//		},
+		function(req, res, next) {
+			mesia.web.configurators.mariadb(config.db, 'DbConnection')(req.container, libs, next);
+		},
+		function(req, res, next) {
+			//350 is the limit in ms for logging "slow" queries
+			mesia.web.configurators.sqlExecutor('SqlExecutor', 'DbConnection', 350)(req.container, libs, next);
+		},
+		function(req, res, next) {
+			mesia.web.configurators.transactionInterceptor('SqlExecutor')(req.container, libs, next);
+		},
 		require('./middleware/repositories'),
 		require('./middleware/entity-validation'),
-//		require('./middleware/services'),
-//		require('./middleware/logged-in-user')(addLocalToRequest),
+		require('./middleware/services'),
+		require('./middleware/logged-in-user')(addLocalToRequest),
 
 		require('./middleware/client-side-js-files')(addLocalToRequest),
 		require('./middleware/csrf')

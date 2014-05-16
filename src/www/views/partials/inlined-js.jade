@@ -1,0 +1,16 @@
+script(type="text/javascript").
+	window.jello = {
+		util: {},
+		csrfToken: !{JSON.stringify(req.csrfToken ? req.csrfToken() : '' )},
+		config: !{JSON.stringify(config)},
+		initData: {
+			globalData: {
+			},
+			viewData: !{JSON.stringify(viewData || {})},
+			tenant: !{JSON.stringify(tenant ? tenant.toDto() : null)},
+			loggedInUser: !{JSON.stringify(loggedInUser.toDto())}
+		},
+		context: {
+			partials: !{JSON.stringify(partials)}
+		}
+	};

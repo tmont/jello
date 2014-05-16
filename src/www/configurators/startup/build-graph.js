@@ -43,5 +43,5 @@ module.exports = function(container, libs, next) {
 		});
 	}
 
-	async.each([ 'jello', 'jquery' ], build, next);
+	async.each([ 'jello', 'jquery', 'backbone' ], build, next);
 };

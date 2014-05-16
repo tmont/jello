@@ -33,6 +33,10 @@ module.exports = function(container, libs, next) {
 	app.get('/favicon.ico', { controller: 'home', action: 'favicon' });
 	app.get('/robots.txt', { controller: 'home', action: 'robots' });
 
+	routeGet(routes.login, { controller: 'account', action: 'login' });
+
+
+
 	routeGet(routes.notFound, { controller: 'error', action: 'notFound' });
 
 	//set up error routes
